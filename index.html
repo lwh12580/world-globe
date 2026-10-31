@@ -245,7 +245,7 @@
         <button class="chip" data-k="axis">地轴</button>
         <button class="chip" data-k="climate">实时气温</button>
         <button class="chip on" data-k="auto">自动旋转</button>
-        <button class="chip on" data-k="roll">倒置（南极朝上）</button>
+        <button class="chip on" data-k="roll">倒置镜像（南极朝上）</button>
       </div>
       <div class="group" id="panelSeason">
         <span class="glab">二分二至晨昏</span>
@@ -389,8 +389,8 @@ var qrcode=function(){var t=function(t,r){var e=t,n=g[r],o=null,i=0,a=null,u=[],
     "",
     "  if(r2 <= 1.0){",
     "    float nz = sqrt(max(1.0 - r2, 0.0));",
-    "    /* 倒置：绕视轴翻滚 180 度（南极朝上、东西对调，仍是正切不镜像） */",
-    "    vec3 Nv = mix(vec3(q.x, -q.y, nz), vec3(-q.x, q.y, nz), uRoll);",
+    "    /* 倒置镜像：纵向翻转（南北颠倒、左右镜像，东西方位不变） */",
+    "    vec3 Nv = mix(vec3(q.x, -q.y, nz), vec3(q.x, q.y, nz), uRoll);",
     "",
     "    /* 视图 -> 世界 */",
     "    float c1 = cos(-uLat), s1 = sin(-uLat);",
@@ -422,8 +422,8 @@ var qrcode=function(){var t=function(t,r){var e=t,n=g[r],o=null,i=0,a=null,u=[],
     "    vec3 S = normalize(P - gx*Tu - gn*Tv);",
     "",
     "    /* 光照 */",
-    "    /* 光照（倒置时同步翻滚，保持画面左上受光的观感） */",
-    "    vec3 Lv = mix(normalize(vec3(-0.55, 0.50, 0.67)), normalize(vec3(0.55, -0.50, 0.67)), uRoll);",
+    "    /* 光照（倒置镜像时仅翻转纵向分量，保持画面左上受光的观感） */",
+    "    vec3 Lv = mix(normalize(vec3(-0.55, 0.50, 0.67)), normalize(vec3(-0.55, -0.50, 0.67)), uRoll);",
     "    vec3 L1 = vec3(Lv.x, c1*Lv.y - s1*Lv.z, s1*Lv.y + c1*Lv.z);",
     "    vec3 Lw = vec3(c2*L1.x + s2*L1.z, L1.y, -s2*L1.x + c2*L1.z);",
     "    float diff = clamp(dot(S, Lw), 0.0, 1.0);",
@@ -578,7 +578,7 @@ var qrcode=function(){var t=function(t,r){var e=t,n=g[r],o=null,i=0,a=null,u=[],
   var state = {
     lon: -102 * Math.PI/180,
     lat:  24 * Math.PI/180,
-    roll: true,   /* 倒置：南极朝上 */
+    roll: true,   /* 倒置镜像：纵向翻转，南极朝上 */
     zoom: 1.0,
     zoomTarget: 1.0,
     auto: true,
@@ -671,10 +671,10 @@ var qrcode=function(){var t=function(t,r){var e=t,n=g[r],o=null,i=0,a=null,u=[],
     if(!state.dragging) return;
     var dx = x - state.lastX, dy = y - state.lastY;
     state.lastX = x; state.lastY = y;
-    /* 倒置时画面整体旋转 180 度，拖拽增量需同步取反，保持手感一致 */
-    var k = 0.0052 * (state.roll ? -1 : 1);
+    /* 倒置镜像：仅纵向翻转，拖拽垂直增量取反、水平不变，保持手感一致 */
+    var k = 0.0052, ky = 0.0052 * (state.roll ? -1 : 1);
     state.vLon = dx * k;
-    state.vLat = dy * k;
+    state.vLat = dy * ky;
     state.lon -= state.vLon;
     state.lat += state.vLat;
     state.lat = Math.max(-1.35, Math.min(1.35, state.lat));
@@ -884,7 +884,7 @@ var qrcode=function(){var t=function(t,r){var e=t,n=g[r],o=null,i=0,a=null,u=[],
       if(mk.el.style.display === 'none') mk.el.style.display = '';
       var sx = cw/2 + p.x * R * m;
       var sy = ch/2 - p.y * R * m;
-      if(state.roll){ sx = cw - sx; sy = ch - sy; }   /* 倒置：屏幕坐标随画面旋转 180 度 */
+      if(state.roll){ sy = ch - sy; }   /* 倒置镜像：屏幕坐标仅纵向翻转，横向不变 */
       mk.el.style.transform = 'translate(' + Math.round(sx) + 'px,' + Math.round(sy) + 'px) translate(-50%,-50%)';
       mk.el.style.opacity = Math.min(1, Math.max(0.25, p.z * 2.4)).toFixed(2);
     }
