@@ -25,7 +25,7 @@
   .hud{
     position:fixed;inset:0;pointer-events:none;z-index:5;
     display:grid;
-    grid-template-columns:clamp(272px,24vw,344px) minmax(0,1fr);
+    grid-template-columns:clamp(196px,15vw,244px) minmax(0,1fr);
     gap:clamp(10px,1.5vw,24px);
     padding:clamp(12px,2vw,26px);
   }
@@ -50,9 +50,9 @@
   header{text-align:center;position:relative;flex:0 0 auto;padding-top:clamp(2px,1.2vw,14px)}
   .eyebrow{
     display:inline-flex;align-items:center;gap:8px;
-    font-size:clamp(10px,1.5vw,12px);letter-spacing:.34em;
+    font-size:clamp(9px,1.2vw,11px);letter-spacing:.30em;
     color:var(--accent);text-transform:uppercase;opacity:.92;
-    margin-bottom:clamp(8px,1.4vw,14px);
+    margin-bottom:clamp(5px,.9vw,9px);
   }
   .eyebrow::before,.eyebrow::after{
     content:"";width:clamp(18px,4vw,42px);height:1px;
@@ -60,15 +60,15 @@
   }
   .eyebrow::after{background:linear-gradient(90deg,var(--accent),transparent)}
   h1{
-    font-size:clamp(23px,4.6vw,44px);
+    font-size:clamp(20px,3.2vw,34px);
     font-weight:700;letter-spacing:.10em;line-height:1.18;
     background:linear-gradient(180deg,#ffffff 10%,#a9d6f5 90%);
     -webkit-background-clip:text;background-clip:text;color:transparent;
     text-shadow:0 0 40px rgba(70,170,240,.18);
   }
   .sub{
-    margin-top:clamp(6px,1vw,10px);
-    font-size:clamp(10px,1.5vw,13px);letter-spacing:.22em;
+    margin-top:clamp(4px,.7vw,7px);
+    font-size:clamp(9.5px,1.25vw,12px);letter-spacing:.20em;
     color:var(--ink-dim);font-weight:400;
   }
   .seasoncap{
@@ -88,7 +88,7 @@
     text-align:center;
     display:flex;align-items:center;gap:clamp(8px,1vw,12px);
   }
-  .qrcard #qrbox{width:clamp(72px,6.4vw,92px);height:clamp(72px,6.4vw,92px);background:#fff;border-radius:9px;padding:4px}
+  .qrcard #qrbox{width:clamp(58px,4.6vw,74px);height:clamp(58px,4.6vw,74px);background:#fff;border-radius:9px;padding:4px}
   .qrcard #qrbox svg{display:block;width:100%;height:100%}
   .qrcard .qrtxt{
     font-size:clamp(9px,1.05vw,11px);letter-spacing:.14em;color:var(--ink-dim);text-align:left;line-height:1.7;
@@ -101,21 +101,21 @@
     pointer-events:auto;min-width:0;max-width:100%;
     background:rgba(9,20,36,.55);
     border:1px solid var(--line);
-    border-radius:14px;
-    padding:clamp(9px,1.2vw,14px) clamp(10px,1.4vw,16px);
+    border-radius:12px;
+    padding:clamp(7px,.9vw,10px) clamp(8px,1vw,12px);
     backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
   }
   .legend h2{
-    font-size:clamp(9px,1.25vw,11px);font-weight:600;letter-spacing:.2em;
-    color:var(--accent);margin-bottom:clamp(7px,1.1vw,10px);text-transform:uppercase;
+    font-size:clamp(8.5px,1.05vw,10px);font-weight:600;letter-spacing:.18em;
+    color:var(--accent);margin-bottom:clamp(5px,.8vw,7px);text-transform:uppercase;
   }
   .basenote{
-    font-size:clamp(9px,0.78vw,10.5px);color:#8fb6d8;margin-top:-2px;margin-bottom:6px;
+    font-size:clamp(8.5px,0.72vw,9.5px);color:#8fb6d8;margin-top:-2px;margin-bottom:4px;
     letter-spacing:.02em;
   }
   .legend h2.gap{margin-top:clamp(8px,1.2vw,12px)}
-  .rows{display:grid;grid-template-columns:1fr 1fr;gap:clamp(4px,.9vw,7px) clamp(10px,1.8vw,18px)}
-  .row{display:flex;align-items:center;gap:clamp(5px,.9vw,8px);font-size:clamp(9.5px,1.3vw,12px);color:#c3d5e8;white-space:nowrap}
+  .rows{display:grid;grid-template-columns:1fr 1fr;gap:clamp(3px,.6vw,5px) clamp(6px,1vw,10px)}
+  .row{display:flex;align-items:center;gap:clamp(4px,.7vw,6px);font-size:clamp(9px,1.05vw,10.5px);color:#c3d5e8;white-space:nowrap}
   .sw{width:clamp(10px,1.5vw,14px);height:clamp(7px,1.1vw,10px);border-radius:3px;flex:0 0 auto;box-shadow:inset 0 0 0 1px rgba(255,255,255,.10)}
   .ln{width:clamp(14px,2vw,20px);height:2px;border-radius:2px;flex:0 0 auto}
   .ln.dash{background:repeating-linear-gradient(90deg,#73d9ff 0 5px,transparent 5px 9px)}
@@ -127,21 +127,21 @@
   .panel{
     pointer-events:auto;min-width:0;max-width:100%;
     background:rgba(9,20,36,.55);
-    border:1px solid var(--line);border-radius:14px;
-    padding:clamp(8px,1.1vw,12px);
+    border:1px solid var(--line);border-radius:12px;
+    padding:clamp(6px,.8vw,9px);
     backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
   }
-  .group{display:flex;flex-wrap:wrap;min-width:0;max-width:100%;gap:clamp(5px,.8vw,8px);align-items:center}
+  .group{display:flex;flex-wrap:wrap;min-width:0;max-width:100%;gap:clamp(4px,.6vw,6px);align-items:center}
   .group + .group{
-    margin-top:clamp(6px,.9vw,9px);padding-top:clamp(6px,.9vw,9px);
+    margin-top:clamp(4px,.7vw,6px);padding-top:clamp(4px,.7vw,6px);
     border-top:1px solid rgba(120,180,230,.14);
   }
-  .glab{font-size:clamp(9px,1.15vw,11px);letter-spacing:.18em;color:var(--ink-dim);margin-right:2px}
+  .glab{font-size:clamp(8.5px,1vw,10px);letter-spacing:.14em;color:var(--ink-dim);margin-right:2px}
   .chip{
     appearance:none;border:1px solid var(--line);border-radius:99px;
     background:rgba(20,40,64,.45);color:var(--ink-dim);
-    font-family:inherit;font-size:clamp(10px,1.3vw,12.5px);letter-spacing:.06em;
-    padding:clamp(4px,.7vw,6px) clamp(10px,1.4vw,14px);cursor:pointer;
+    font-family:inherit;font-size:clamp(9.5px,1vw,11px);letter-spacing:.04em;
+    padding:clamp(3px,.5vw,4px) clamp(7px,.9vw,10px);cursor:pointer;
     transition:all .18s ease;white-space:nowrap;
   }
   .chip:hover{border-color:rgba(120,190,240,.5);color:var(--ink)}
@@ -160,15 +160,15 @@
     padding:2px 2px 0;
   }
   .credit .who{
-    font-size:clamp(13px,1.25vw,17px);font-weight:600;letter-spacing:.06em;
+    font-size:clamp(12px,1.05vw,15px);font-weight:600;letter-spacing:.06em;
     color:#ffffff;
   }
   .credit .cls{
-    display:inline-block;font-size:clamp(9px,1.2vw,11px);letter-spacing:.16em;
+    display:inline-block;font-size:clamp(8.5px,1vw,10px);letter-spacing:.16em;
     color:var(--accent);border:1px solid var(--line);border-radius:99px;
     padding:2px 9px;margin-bottom:5px;
   }
-  .credit .teach{font-size:clamp(10px,1.4vw,12.5px);color:var(--ink-dim);letter-spacing:.08em}
+  .credit .teach{font-size:clamp(9px,1.05vw,11px);color:var(--ink-dim);letter-spacing:.08em}
 
   /* ---------- 实时气温标注 ---------- */
   #wmarks{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:3}
@@ -704,7 +704,7 @@ var qrcode=function(){var t=function(t,r){var e=t,n=g[r],o=null,i=0,a=null,u=[],
     stageInfo.cx = r.left + r.width / 2;
     stageInfo.cy = r.top + r.height / 2;
     /* 0.42：球半径占舞台短边一半的 84%，留出大气晕光与边距 */
-    stageInfo.rad = Math.max(60, 0.42 * Math.min(r.width, r.height));
+    stageInfo.rad = Math.max(60, 0.462 * Math.min(r.width, r.height));
   }
 
   function resize(){
